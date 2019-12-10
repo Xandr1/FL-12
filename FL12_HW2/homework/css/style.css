@@ -70,7 +70,7 @@
     text-align: left;
 }
 
-.tm-team-description-container .tm-section-description:last-child{
+.blocks .tm-team-description-container p:nth-child(3) {
     letter-spacing: 5px;
     word-spacing: 10px;
     font-style: italic;
@@ -133,7 +133,7 @@ section, .tm-main-nav, #home {
 }
 
 section::before {
-	content: "";
+    content: "";
 	border-top: 40px solid lightskyblue;
 	border-right: 40px solid transparent;
 }
