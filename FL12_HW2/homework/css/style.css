@@ -1,3 +1,21 @@
+@media print {
+    #about, #contact, .img-contact-us, .carousel-indicators, .tm-team-img, .tm-sidebar {
+        display: none;
+    }
+
+    .blocks .tm-content-box {
+        display: none;
+    }
+
+    section:before {
+        display: none;
+    }
+
+    .tm-content-box {
+        margin: 1em;
+    }
+}
+
 .tm-nav-item-link:hover {
     color: #fff;
     background-color: lightskyblue;
