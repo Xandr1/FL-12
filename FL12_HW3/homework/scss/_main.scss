@@ -2,3 +2,11 @@ body {
     margin: 0;
 }
 
+.header {
+    background-image: $back-img;
+    border-radius: 0 0 750px/290px 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 0 760px/290px 0;
+}
