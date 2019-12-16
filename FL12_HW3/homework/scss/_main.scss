@@ -1,3 +1,14 @@
+@mixin marker ($height, $width, $color, $bottom, $left) {
+    content: '';
+    position: absolute;
+    height: $height;
+    width: $width;
+    background-color: $color;
+    bottom: $bottom;
+    left: $left;
+    z-index: -1;
+}
+
 @mixin button ($bg-col, $t-col) {
     background-color: $bg-col;
     color: $t-col;
@@ -9,15 +20,10 @@
     font-weight: 600;
 }
 
-@mixin link ($color, $size) {
-    color: $color;
-    font-size: $size;
-    letter-spacing: -0.2pt;
-}
-
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
+    background-color: map-get($map: $color, $key: back);
 }
 
 .header {
@@ -29,24 +35,29 @@ body {
     border-radius: 0 0 800px/300px 0;
     color: map-get($map: $color, $key: header-font);
 
+    &_heading {
+        font-size: 72px;
+        font-weight: 600;
+        margin: 80px 0 40px 0;
+        line-height: 1em;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            @include marker(45px, 295px, map-get($map: $color, $key: highlights), 4px, 0);
+        }
+    }
+
+    &_text {
+        font-size: 16px;
+        white-space: pre-line;
+        line-height: 24px;
+        font-family: $font;
+    }
+
     &-wrap {
         margin-left: 192px;
         width: 660px;
-
-        .header_heading {
-            font-size: 72px;
-            font-weight: 600;
-            margin: 80px 0 40px 0;
-            line-height: 1em;
-            position: relative;
-        }
-
-        .header_text {
-            font-size: 16px;
-            white-space: pre-line;
-            line-height: 24px;
-            font-family: $font;
-        }
 
         div:last-of-type {
             margin-top: 65px;
@@ -56,7 +67,8 @@ body {
             }
 
             a {
-                @include link ($color: map-get($map: $color, $key: white) , $size: 18px);
+                color: #fff;
+                font-size: 18px;
                 padding-left: 140px;
             }
         }    
@@ -103,6 +115,11 @@ body {
         text-align: center;
         margin: 0;
         position: relative;
+        z-index: 1;
+
+        &::after {
+            @include marker(40px, 180px, map-get($map: $color, $key: highlights), 8px, 768px);
+        }
     }
 
     &_card_wrap {
@@ -156,18 +173,9 @@ body {
         border-radius: 4px;
         padding: 0 150px;
 
-        &_text {
-            @extend .section_card_text;
-
-            &_wrap {
-                justify-content: space-around;
-                padding: 15px 0 30px 0;
-            }
-        }
-        
-        &_button {
-            @include button ($bg-col: map-get($map: $color, $key: join-us), $t-col: map-get($map: $color, $key: white));
-            align-self: center;
+        &_text_wrap {
+            justify-content: space-around;
+            padding: 15px 0 30px 0;
         }
 
         &_heading {
@@ -175,6 +183,21 @@ body {
             font-weight: 600;
             font-size: 30px;
             margin: 5px 0;
+            position: relative;
+            z-index: 1;
+
+            &::after {
+                @include marker(35px, 60px, map-get($map: $color, $key: highlights), 3px, 118px);
+            }
+        }
+
+        &_text {
+            @extend .section_card_text;
+        }
+        
+        &_button {
+            @include button ($bg-col: map-get($map: $color, $key: join-us), $t-col: map-get($map: $color, $key: white));
+            align-self: center;
         }
     }
 }
@@ -201,6 +224,7 @@ body {
         width: 300px;
         text-align: left;
         align-self: center;
+        position: relative;
     }
 
     &-cr {
