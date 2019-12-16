@@ -15,18 +15,6 @@
     letter-spacing: -0.2pt;
 }
 
-@mixin highlight ($height, $width, $bottom, $left) {
-    content: "";
-    display: block;
-    height: $height;
-    width: $width;
-    bottom: $bottom;
-    left: $left;
-    background-color: map-get($map: $color, $key: highlights);
-    position: absolute;
-    z-index: -1;
-}
-
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
@@ -40,7 +28,6 @@ body {
     background-size: cover;
     border-radius: 0 0 800px/300px 0;
     color: map-get($map: $color, $key: header-font);
-    z-index: -2;
 
     &-wrap {
         margin-left: 192px;
@@ -52,10 +39,6 @@ body {
             margin: 80px 0 40px 0;
             line-height: 1em;
             position: relative;
-            z-index: 1;
-            &::after {
-                @include highlight($height: 48px, $width: 300px, $bottom: 1px, $left: 0);
-            }
         }
 
         .header_text {
@@ -82,10 +65,12 @@ body {
 
 .landing-logo {
     padding-top: 20px;
-    width: $logo-width;
+    width: 120px;
+
     img {    
         float: left;
     }
+    
     p {
         font-family: $font;
         font-weight: 600;
@@ -93,6 +78,7 @@ body {
         line-height: 0.75em;
         padding: 6px 0 0 60px;
         margin: 0;
+
         span {
             display: block;
             text-align: center;
@@ -102,143 +88,126 @@ body {
 }
 
 .section {
-    padding-top: 40px;
+    padding: 40px 0;
     position: relative;
 
-    .section_text {
+    &_link {
+        color: #c0c3ce;
+        text-align: center;
+    }
+
+    &_text {
         color: map-get($map: $color, $key: header-font);
         font-size: 40px;
         font-weight: 600;
         text-align: center;
         margin: 0;
         position: relative;
-        &::after {
-            @include highlight($height: 48px, $width: 180px, $bottom: 1px, $left: 767px);
+    }
+
+    &_card_wrap {
+        margin: 40px auto;
+        width: 60vw;
+    }
+
+    &_card {
+        border-radius: 4px;
+        padding: 15px;
+        display: flex;
+        background-color: map-get($map: $color, $key: main);
+        margin-bottom: 25px;
+
+        &_heading {
+            color: map-get($map: $color, $key: white);
+            font-size: 24px;
+            text-align: center;
+            margin: 18px;
+            letter-spacing: -0.3px;
+        }
+
+        &_right_container {
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+    
+        }
+    
+        &_text {
+            font-family: $font;
+            font-size: 14px;
+            color: #c0c3ce;
+            text-align: justify;
+        }
+    
+        &_img {
+            border-radius: 4px;
+            width: 100vw;
         }
     }
 
-    .section_card_wrap {
-        margin: auto;
-        width: 1110px;
-    }
-}
-
-.section_card {
-    border-radius: 4px;
-    padding: 15px 100px 15px 15px;
-    box-sizing: border-box;
-    display: flex;
-    background-color: map-get($map: $color, $key: main);
-    margin-bottom: 25px;
-
-    &:first-child {
-        margin-top: 40px;
-    }
-
-    .section_card_img {
-        border-radius: 4px;
-        width: 100vw;
-    }
-}
-
-.section_card_right_container {
-    padding: 3% 0 2% 89px;
-    margin-bottom: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .section_card_heading {
-        color: map-get($map: $color, $key: white);
-        font-size: 24px;
-        text-align: center;
-        margin: 18px;
-        letter-spacing: -0.3px;
-    }
-    a {
-        @include link ($color: map-get($map: $color, $key: paragraf-font), $size: 16px);
-        text-align: center;
-    }
-}
-
-.section_card_text {
-    margin: 0;
-    line-height: 24px;
-    text-align: justify;
-    letter-spacing: 0.1px;
-    font-family: $font;
-    color: map-get($map: $color, $key: paragraf-font);
-}
-
-.section_banner {
-    background: linear-gradient(45deg, map-get($map: $color, $key: join-us), map-get($map: $color, $key: banner));
-    position: absolute;
-    width: 1198px;
-    height: 144px;
-    left: 361px;
-    bottom: -284px;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 0 161px;
-    display: flex;
-    justify-content: space-between;
-    .section_banner_text_wrap {
+    &_banner {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 20px 0 34px;
-    }
-    .section_banner_text {
-        @extend .section_card_text;
-        letter-spacing: 0;
-    }
-    .section_banner_button {
-        @include button ($bg-col: map-get($map: $color, $key: join-us), $t-col: map-get($map: $color, $key: white));
-        align-self: center;
-    }
-}
+        justify-content: space-between;
+        background: linear-gradient(45deg, map-get($map: $color, $key: join-us), map-get($map: $color, $key: banner));
+        width: 1000px;
+        height: 140px;
+        margin: 0 auto -320px auto;
+        border-radius: 4px;
+        padding: 0 150px;
 
-.section_banner_heading {
-    color: map-get($map: $color, $key: header-font);
-    font-size: 30px;
-    letter-spacing: 0.1px;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-    &::after {
-        @include highlight($height: 50px, $width: 64px, $bottom: 0, $left: 121px);
+        &_text {
+            @extend .section_card_text;
+
+            &_wrap {
+                justify-content: space-around;
+                padding: 15px 0 30px 0;
+            }
+        }
+        
+        &_button {
+            @include button ($bg-col: map-get($map: $color, $key: join-us), $t-col: map-get($map: $color, $key: white));
+            align-self: center;
+        }
+
+        &_heading {
+            color: map-get($map: $color, $key: header-font);
+            font-weight: 600;
+            font-size: 30px;
+            margin: 5px 0;
+        }
     }
 }
 
 .footer {
     background-color: map-get($map: $color, $key: main);
-    margin-top: 210px;
-    height: 243px;
-    padding-top: 117px;
-    box-sizing: border-box;
-    .footer_logo {
-        color: map-get($map: $color, $key: paragraf-font);
+    margin-top: 200px;
+    padding: 120px 0 30px 0;
+
+    &_logo {
+        color: #fff;
+        width: 120px;
+
     }
-    .footer-wrap {
-        margin: 0 192px;
+
+    &-wrap {
         display: flex;
-        justify-content: space-between;
-        .footer_text {
-            @extend .section_card_text;
-            width: 293px;
-            font-size: 14px;
-            line-height: 20px;
-            letter-spacing: 0;
-            text-align: left;
-            padding-top: 10px;
-            align-self: center;
-            margin-left: $ft-text-margin-left;
-        }
-        .footer-cr {
-            @extend .footer_text;
-            margin: 0;
-            font-size: 16px;
-            text-align: right;
-            align-self: center;
-        }
+        justify-content: $footer-position;
+        margin: 0 20px;
+    }
+
+    &_text {
+        @extend .section_card_text;
+        width: 300px;
+        text-align: left;
+        align-self: center;
+    }
+
+    &-cr {
+        @extend .footer_text;
+        margin: 0;
+        font-size: 16px;
+        text-align: right;
+        align-self: center;
     }
 }
