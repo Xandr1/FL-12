@@ -1,4 +1,54 @@
 body {
     margin: 0;
+    font-family: Georgia, serif;
 }
 
+.header {
+    display: flex;
+    top: 0;
+    color: #777;
+    background-color: #ffffff;
+    height: 100px;
+    position: fixed;
+    width: 100%;
+}
+
+.header-heading {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 25px 0 25px 75px;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 50px 0 50px 25vw;    
+}
+
+.nav-menu a {
+    color: #777;
+    text-decoration: none;
+    padding: 10px 20px;  
+}
+
+.nav-menu a:hover {
+    color: #bfba55;
+    transition: 0.2s;
+}
+
+.top-section {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../img/home-bg.jpg') no-repeat;
+    background-position: cover;
+    display: flex;
+}
+
+.hello-heading {
+    font-size: 48px;
+    color: #ffffff;
+}
+
+.hello-text {
+    font-size: 12px;
+    color: #bfba55;
+}
