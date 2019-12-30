@@ -3,13 +3,13 @@ let currentPass;
 let newPass;
 let passConfirm;
 
-currentEmail = prompt('Enter your e-mail: ');
+currentEmail = prompt('Enter e-mail:');
 if (currentEmail === null || currentEmail === ''){
     alert('Canceled');
 } else if (currentEmail.length < 5) {
     alert('I don\'t know any emails having name length less than 5 symbols');
 } else if (currentEmail === 'user@gmail.com' || currentEmail === 'admin@gmail.com') {
-    currentPass = prompt('Enter password: ');
+    currentPass = prompt('Enter password:');
    if (currentPass === null || currentPass === ''){
         alert('Canceled');
     } else if (currentEmail === 'user@gmail.com' && currentPass === 'UserPass' || 
