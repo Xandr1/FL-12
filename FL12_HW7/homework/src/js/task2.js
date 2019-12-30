@@ -11,7 +11,7 @@ if (start === false) {
     alert('You did not become a billionaire, but can');
 } else {
     while (start !== false) {
-        random = Math.floor(Math.random() * range);
+        random = Math.floor(Math.random()*range);
         while (attempt > 0 && guess === false) {
             guess = parseInt(prompt(`Choose a rouletter pocket number from 0 to ${range - 1}\n
             Attempts left: ${attempt}\n 
