@@ -5,21 +5,21 @@ let previusSum = 0;
 let maxSum = 100;
 let attempt = 3;
 let range = 9;
-let guesse = false;
+let guess = false;
 
 if (start === false) {
     alert('You did not become a billionaire, but can');
 } else {
     while (start !== false) {
         random = Math.floor(Math.random() * range);
-        while (attempt > 0 && guesse === false) {
+        while (attempt > 0 && guess === false) {
             guess = parseInt(prompt(`Choose a rouletter pocket number from 0 to ${range - 1}\n
             Attempts left: ${attempt}\n 
             Total prize: $${previusSum}\n
             Possible prize on current attempt: $${maxSum}`));
 
             if(guess === random) {
-                guesse = true;
+                guess = true;
                 currentSum = maxSum;
                 start = confirm(`Congratulation, you won!\n
                 Your prize is: $${currentSum}\n
@@ -29,13 +29,13 @@ if (start === false) {
             attempt--;
         }
 
-        if(!guesse || start === false){
+        if(!guess || start === false){
             alert(`Thank you for your participation. Your prize is $${currentSum + previusSum}`);
             start = confirm('Do you want to play again?');
         }
         if (start) {
-            if(guesse) {
-                guesse = false;
+            if(guess) {
+                guess = false;
                 maxSum = maxSum*2;
                 range = range + 4;
             }
