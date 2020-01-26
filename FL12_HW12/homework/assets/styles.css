@@ -1,0 +1,45 @@
+#root {
+	display: inline-block;
+	cursor: pointer;
+	min-width: 250px;
+}
+
+.folder, .file {
+	text-align: left;
+}
+
+.folder-name, .file-name {
+	display: flex;
+	align-items: center;
+}
+
+.folder-name i {
+	color: rgb(248, 163, 66);
+}
+
+.file-name i {
+	color: rgba(20,20,20, 0.3);
+}
+
+.folder-name:hover, .file-name:hover {
+	background-color: rgba(145, 145, 145, 0.1);
+}
+
+.has-parent {
+	margin-left: 15px;
+}
+
+.is-open {
+	background-color: rgba(145, 145, 145, 0.1);
+}
+
+.is-hidden {
+	display: none;
+}
+
+.folder-empty {
+	font-style: italic;
+	font-size: 14px;
+	display: inline-block;
+	margin-left: 10px;
+}
